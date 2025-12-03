@@ -4,6 +4,7 @@ const spawner = {
 }
 document.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
+        if (!document.hasFocus()) return
         const div = document.createElement('div')
 
         div.style.left =    (~~(Math.random() * (spawner.x[1] - spawner.x[0] + 1)) + spawner.x[0]) + 'vw';
