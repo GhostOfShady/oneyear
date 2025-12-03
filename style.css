@@ -101,7 +101,7 @@ html, body {
 
   20% {
     transform:
-      translate(-5vh, -25vh)
+      translate(-20px, calc(var(--h) * -0.25))
       rotate(20deg)
       scale(0.9);
     opacity: 1;
@@ -109,7 +109,7 @@ html, body {
 
   40% {
     transform:
-      translate(5vh, -50vh)
+      translate(20px, calc(var(--h) * -0.50))
       rotate(70deg)
       scale(1.2);
     opacity: 1;
@@ -117,7 +117,7 @@ html, body {
 
   60% {
     transform:
-      translate(-5vh, -75vh)
+      translate(20px, calc(var(--h) * -0.75))
       rotate(20deg)
       scale(1.5);
     opacity: 1;
@@ -125,13 +125,13 @@ html, body {
 
   80% {
     transform:
-      translate(5vh, -100vh)
+      translate(-20px, calc(var(--h) * -1))
       rotate(70deg)
       scale(1.8);
   }
   100% {
     transform:
-      translate(-5vh, -125vh)
+      translate(20px, calc(var(--h) * -1.25))
       rotate(20deg)
       scale(2.3);
     opacity: 0;

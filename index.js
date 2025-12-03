@@ -1,3 +1,5 @@
+document.documentElement.style.setProperty('--h', window.innerHeight + 'px');
+
 const spawner = {
     x: [-5, 105],//vw
     y: 105//vh
