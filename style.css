@@ -1,0 +1,137 @@
+
+:root { 
+    --s: 25px;
+    --c: #8E1616;
+ }
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #1D1616;
+}
+
+.text {
+    color: #D84040;
+    font-family: "Fredoka", sans-serif;
+    font-size: 3ch;
+    position: absolute;
+
+    padding: 12px 20px;
+
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+
+    z-index: 3;
+
+    background: linear-gradient(145deg, #5A1B1B, #4A1212);
+    border-radius: 22px;
+
+    box-shadow:
+        0 0 12px rgba(216, 64, 64, 0.35),  
+        0 4px 12px rgba(0,0,0,0.4),        
+        inset 0 0 6px rgba(0,0,0,0.3);     
+    
+    backdrop-filter: blur(2px);             
+    animation: softGlow 3s ease-in-out infinite,
+               floatText 4s ease-in-out infinite;
+}
+
+@keyframes floatText {
+  0% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-6px); }
+  100% { transform: translate(-50%, -50%) translateY(0); }
+}
+
+
+@keyframes softGlow {
+  0% { box-shadow: 0 0 10px rgba(216, 64, 64, .25); }
+  50% { box-shadow: 0 0 16px rgba(216, 64, 64, .45); }
+  100% { box-shadow: 0 0 10px rgba(216, 64, 64, .25); }
+}
+
+
+
+.heart {
+    background: var(--c);
+    width: var(--s);
+    height: var(--s);
+    position: absolute;
+    transform: rotate(45deg);
+    border-radius: 10%;
+    display: inline-block;
+    animation: floatWind 6s linear forwards;
+    z-index: 1;
+}
+
+.heart::before,
+.heart::after{
+  content: "";
+  position: absolute;
+  width: var(--s);
+  height: var(--s);
+  background: var(--c);
+  border-radius: 50%;
+  top: -50%;
+  left: 0;
+}
+
+.heart::after{
+  left: -50%;
+  top: 0;
+}
+
+@keyframes floatWind {
+  0% {
+    transform:
+      translate(0, 0)
+      rotate(70deg)
+      scale(0.6);
+    opacity: 1;
+  }
+
+  20% {
+    transform:
+      translate(-5vh, -25vh)
+      rotate(20deg)
+      scale(0.9);
+    opacity: 1;
+  }
+
+  40% {
+    transform:
+      translate(5vh, -50vh)
+      rotate(70deg)
+      scale(1.2);
+    opacity: 1;
+  }
+
+  60% {
+    transform:
+      translate(-5vh, -75vh)
+      rotate(20deg)
+      scale(1.5);
+    opacity: 1;
+  }
+
+  80% {
+    transform:
+      translate(5vh, -100vh)
+      rotate(70deg)
+      scale(1.8);
+  }
+  100% {
+    transform:
+      translate(-5vh, -125vh)
+      rotate(20deg)
+      scale(2.3);
+    opacity: 0;
+  }
+}
