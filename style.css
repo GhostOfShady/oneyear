@@ -15,7 +15,18 @@
     --ds: #4CAF50; /* Stem */
 }
 
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
 * {
+  /* Firefox */
+  scrollbar-width: none;
+
+/* IE 10+ */
+  -ms-overflow-style: none;
+  
   box-sizing: border-box;
 }
 
