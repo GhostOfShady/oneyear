@@ -1,57 +1,134 @@
-
 :root { 
     --s: 25px;
     --c: #8E1616;
- }
+
+    /* Capybara */
+    --cf: #D19F7C; /* face and ears */
+    --cs: #764632; /* shadow */
+    --cb: #D67A7A; /* blush */
+    --ce: #613a29; /* eyes */
+}
 
 * {
   box-sizing: border-box;
 }
 
+.capy {
+  opacity: 0.8;
+  position: relative; 
+  z-index: 3; 
+}
+
+.cFace {
+  background: var(--cf);
+  width: 75px;
+  height: 75px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 25%;
+  border-bottom-right-radius: 25%;
+  position: relative;
+  z-index: 5;
+}
+
+/* Ears */
+.cEars {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: var(--cs);
+  border-radius: 50%;
+  z-index: 0; 
+}
+
+.cEars.eleft { left: -2px; top: -1px; }
+.cEars.eright { right: -2px; top: -1px; }
+
+/* Eyes */
+.cFace::before,
+.cFace::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 10px;
+  background: var(--ce);
+  border-radius: 50%;
+  top: 50%;
+}
+
+.cFace::before { left: 25%; transform: translate(-50%, -50%) rotate(-20deg); }
+.cFace::after  { left: 75%; transform: translate(-50%, -50%) rotate(20deg); }
+
+/* Muzzle */
+.cMuzzle {
+  width: 30px;
+  height: 30px;
+  background: var(--cs);
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  z-index: 6;
+}
+
+/* Blush */
+.cBlush {
+  background: var(--cb);
+  width: 15px;
+  height: 10px;
+  position: absolute;
+  border-radius: 50%;
+  z-index: 6;
+  filter: blur(2px);
+}
+
+.cBlush.bleft { left: 4px; top: 62%;}
+.cBlush.bright { right: 4px; top: 62%;}
+
+
 html, body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
   margin: 0;
   padding: 0;
   width: 100vw;
   height: 100vh;
   overflow: hidden !important;
   overscroll-behavior: none;
-  position: fixed;
   background: #1D1616;
+  font-family: "Fredoka", sans-serif;
 }
 
 .text {
-    color: #D84040;
-    font-family: "Fredoka", sans-serif;
-    font-size: 3ch;
-    position: absolute;
-
-    padding: 12px 20px;
-
-    top: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-
     z-index: 3;
+    color: #D84040;
+    font-size: 3ch;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    padding: 12px 20px;
 
     background: linear-gradient(145deg, #5A1B1B, #4A1212);
     border-radius: 22px;
 
     box-shadow:
-        0 0 12px rgba(216, 64, 64, 0.35),  
-        0 4px 12px rgba(0,0,0,0.4),        
-        inset 0 0 6px rgba(0,0,0,0.3);     
+        0 0 12px rgba(216, 64, 64, 0.35),
+        0 4px 12px rgba(0,0,0,0.4),
+        inset 0 0 6px rgba(0,0,0,0.3);
     
-    backdrop-filter: blur(2px);             
+    backdrop-filter: blur(2px);
+
     animation: softGlow 3s ease-in-out infinite,
                floatText 4s ease-in-out infinite;
 }
 
 @keyframes floatText {
-  0% { transform: translate(-50%, -50%) translateY(0); }
-  50% { transform: translate(-50%, -50%) translateY(-6px); }
-  100% { transform: translate(-50%, -50%) translateY(0); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
 }
-
 
 @keyframes softGlow {
   0% { box-shadow: 0 0 10px rgba(216, 64, 64, .25); }
@@ -59,6 +136,47 @@ html, body {
   100% { box-shadow: 0 0 10px rgba(216, 64, 64, .25); }
 }
 
+.subtext {
+  z-index: 2;
+  font-size: 2ch;
+  color: #7A2A2A;
+  margin-top: 10px; 
+}
+
+
+.strong {
+  color: #B34141;
+  font-weight: bold;
+  animation: textGlow 3s ease-in-out infinite;
+  position: relative;
+}
+
+.strong::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%; 
+  height: 1.5px;
+  background: #C95C5C;
+  opacity: 0.5;
+}
+
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 6px rgba(179, 65, 65, 0.4),
+                 0 0 10px rgba(179, 65, 65, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 8px rgba(179, 65, 65, 0.6),
+                 0 0 14px rgba(179, 65, 65, 0.4);
+  }
+  100% {
+    text-shadow: 0 0 6px rgba(179, 65, 65, 0.4),
+                 0 0 10px rgba(179, 65, 65, 0.2);
+  }
+}
 
 
 .heart {
@@ -69,6 +187,7 @@ html, body {
     transform: rotate(45deg);
     border-radius: 10%;
     display: inline-block;
+
     animation: floatWind 6s linear forwards;
     z-index: 1;
 }

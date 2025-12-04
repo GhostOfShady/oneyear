@@ -16,5 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
         div.addEventListener('animationend', () => div.remove())
 
         document.body.appendChild(div)
-    }, 250)
+    }, 200)
 })
