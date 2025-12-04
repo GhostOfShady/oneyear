@@ -17,4 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.body.appendChild(div)
     }, 200)
+
+    setInterval(() => {
+        document.querySelector(".cFace").classList.toggle("close");
+        setTimeout(() => {
+            document.querySelector(".cFace").classList.toggle("close");
+        }, 150)
+    }, 3000)
 })

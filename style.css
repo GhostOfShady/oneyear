@@ -7,6 +7,7 @@
     --cs: #764632; /* shadow */
     --cb: #D67A7A; /* blush */
     --ce: #613a29; /* eyes */
+    --cd: #3e251b;
 }
 
 * {
@@ -44,20 +45,63 @@
 .cEars.eleft { left: -2px; top: -1px; }
 .cEars.eright { right: -2px; top: -1px; }
 
-/* Eyes */
-.cFace::before,
-.cFace::after {
-  content: "";
+/* Ears Details */
+.cEarsD {
   position: absolute;
-  width: 12px;
-  height: 10px;
-  background: var(--ce);
-  border-radius: 50%;
-  top: 50%;
+  width: 20px;
+  height: 20px;
+  border: 4px solid var(--cd);
+  border-color: transparent transparent var(--cd) transparent;
+  border-radius: 0 0 100px 100px; 
+  z-index: 3;
 }
 
-.cFace::before { left: 25%; transform: translate(-50%, -50%) rotate(-20deg); }
-.cFace::after  { left: 75%; transform: translate(-50%, -50%) rotate(20deg); }
+.cEarsD.edleft { left: -5px;  top: 6px; transform: rotate(220deg) }
+.cEarsD.edright { right: -5px; top: 6px; transform: rotate(-220deg) }
+
+/* Eyes */
+.eye {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 10px;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s ease, top 0.25s ease;
+}
+
+.eye:nth-child(2),
+.eye:nth-child(4) { left: 75%; }
+
+/* Open Eyes */
+.eye-open {
+  background: var(--ce);
+  border-radius: 50%;
+  display: block; /* sempre visível quando não fechado */
+}
+
+/* Close Eyes */
+.eye-close {
+  border: 4px solid var(--ce);
+  border-color: transparent transparent var(--ce) transparent;
+  border-radius: 0 0 100px 100px;
+  width: 19px;
+  top: 55%;
+  transform: translate(-50%, -50%) rotate(180deg);
+  display: none; /* esconde por padrão */
+}
+
+/* Close Eyes Animation */
+.cFace.close .eye-open {
+  display: none; /* some instantaneamente */
+  transform: translate(-50%, -50%) scaleY(0.1);
+}
+
+.cFace.close .eye-close {
+  display: block; /* aparece instantaneamente */
+  transform: translate(-50%, -50%) rotate(180deg) scaleY(1);
+}
+
 
 /* Muzzle */
 .cMuzzle {
@@ -72,10 +116,37 @@
   z-index: 6;
 }
 
+/* Muzzle details */
+.cMuzzleDc {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 3px solid var(--cd);
+  border-color: transparent transparent var(--cd) transparent;
+  border-radius: 0 0 100px 100px; 
+  z-index: 7;
+}
+
+.cMuzzleDc.mdleft { left: 35%; top: 55%; }
+.cMuzzleDc.mdright { right:35%; top: 55%; }
+
+.cMuzzleDl {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px; 
+  height: 13px;
+  left: 50%;
+  transform: translate(-50%);
+  top: 55%;
+  background: var(--cd);
+  z-index: 7;
+}
+
 /* Blush */
 .cBlush {
   background: var(--cb);
-  width: 15px;
+  width: 18px;
   height: 10px;
   position: absolute;
   border-radius: 50%;
