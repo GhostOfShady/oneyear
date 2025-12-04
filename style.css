@@ -8,16 +8,99 @@
     --cb: #D67A7A; /* blush */
     --ce: #613a29; /* eyes */
     --cd: #3e251b;
+
+    /* Daisy */
+    --dp: #FFFFFF; /* Petals  */
+    --dc: #FFD700; /* Carpel */ 
+    --ds: #4CAF50; /* Stem */
 }
 
 * {
   box-sizing: border-box;
 }
 
+.draws {
+  position: relative;
+  z-index: 3;
+}
+
+/* Daisy */
+.daisy {
+  position: relative;
+  z-index: 3;
+  left: -50%;
+  top: 10px;
+}
+
+.carpel {
+  position: absolute;
+  background: var(--dc);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  z-index: 4;
+}
+
+.petal {
+  position: absolute;
+  background: var(--dp);
+  width : 10px;
+  height: 20px;
+  border-radius: 10px 10px 0px 0px;
+  z-index: 3;
+}
+
+/* Daisy */
+.daisy {
+  position: relative;
+  z-index: 5;
+  left: -50%;
+  transform: rotate(-20deg);
+}
+
+.carpel {
+  position: absolute;
+  background: var(--dc);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  z-index: 4;
+  left: -5px;
+  top: -9px;
+}
+
+.petal {
+  position: absolute;
+  background: var(--dp);
+  width : 10px;
+  height: 20px;
+  border-radius: 10px 10px 0px 0px;
+  z-index: 3;
+}
+
+.petal.d1 { left: -10px; top: -10px; transform: rotate(-90deg); }
+.petal.d2 { left: -6px;  top: -16px; transform: rotate(-45deg); }
+.petal.d3 { left: 0px;   top: -18px; transform: rotate(0deg); }
+.petal.d4 { left: 6px;   top: -16px; transform: rotate(45deg); }
+.petal.d5 { left: 10px;  top: -10px; transform: rotate(90deg); }
+.petal.d6 { left: 6px;   top: -4px;  transform: rotate(135deg); }
+.petal.d7 { left: 0px;   top: 0px;   transform: rotate(180deg); }
+.petal.d8 { left: -6px;  top: -4px;  transform: rotate(-135deg); }
+
+.stem {
+  position: absolute;
+  left: 2px;
+  background: var(--ds);
+  width: 6px;
+  height: 60px;
+  border-radius: 0px 0px 4px 4px;
+}
+
+
+/* Capybara */ 
 .capy {
-  opacity: 0.8;
   position: relative; 
-  z-index: 3; 
+  z-index: 4; 
 }
 
 .cFace {
@@ -154,8 +237,31 @@
   filter: blur(2px);
 }
 
-.cBlush.bleft { left: 4px; top: 62%;}
-.cBlush.bright { right: 4px; top: 62%;}
+.cBlush.bleft { left: 4px; top: 62%; }
+.cBlush.bright { right: 4px; top: 62%; }
+
+/* Hand and Arm */
+.cHand {
+  position: absolute;
+  background: var(--cs);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  z-index: 4;
+  left: -23px;
+  top: 56px;
+}
+
+.cArm {
+  position: absolute;
+  background: var(--cf);
+  width: 30px;
+  height: 13px;
+  left: -20px;
+  top: 53px;
+  transform: rotate(-30deg);
+  z-index: 2;
+}
 
 
 html, body {
