@@ -3,16 +3,30 @@
     --c: #8E1616;
 
     /* Capybara */
-    --cf: #D19F7C; /* face and ears */
-    --cs: #764632; /* shadow */
-    --cb: #D67A7A; /* blush */
-    --ce: #613a29; /* eyes */
-    --cd: #3e251b;
+    --cf: #D19F7C; /* Face and ears */
+    --cs: #764632; /* Shadow */
+    --cb: #D67A7A; /* Blush */
+    --ce: #613a29; /* Eyes */
+    --cd: #3e251b;  /* Details */
 
     /* Daisy */
     --dp: #FFFFFF; /* Petals  */
     --dc: #FFD700; /* Carpel */ 
     --ds: #4CAF50; /* Stem */
+    --dl: #43a046;/* Leaf */
+
+    /* Cat */
+    --cab: #AFAFAF;
+    --cad: #7F7F7F;
+    --cap: #2c2a2a;
+
+    /* Rabbit */
+    --rf: #F4EDE2;
+    --rer: #EBA5A5;
+    --rey: #3A2E2E;
+    --rs: #c2b8ab;
+    --rb: #D67A7A;
+    --rn: #E39CA9;
 }
 
 /* Chrome, Edge, Safari */
@@ -34,6 +48,244 @@
   position: relative;
   z-index: 3;
 }
+
+/* Rabbit */
+.rabbit {
+  position: relative;
+  z-index: 1;
+  left: 15px;
+  top: -140px;
+}
+
+.rface {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  background: var(--rf);
+  border-radius: 20px 20px 10px 10px;
+  z-index: 1;
+}
+
+.rtail {
+  position: absolute;
+  z-index: 0;
+  background: var(--rs);
+  transform: rotate(-130deg);
+  top: 9px;
+  left: -11px;
+  width: 20px;
+  height: 16px;
+  clip-path: polygon(
+    0% 60%,
+    15% 90%,
+    35% 100%,
+    60% 95%,
+    80% 75%,
+    100% 45%,
+    85% 20%,
+    60% 5%,
+    40% 0%,
+    20% 10%
+  );
+  border-radius: 50%;
+}
+
+.rears {
+  position: absolute;
+  width: 15px;
+  height: 25px;
+  background: var(--rf);
+  border-radius: 50% 50% 20% 20%;
+}
+
+.rears.rerleft { left: -2px; top: -18px; transform: rotate(-20deg) }
+.rears.rerright { right: 38px; top: -18px; transform: rotate(20deg) }
+
+.rearsD {
+  position: absolute;
+  width: 8px;
+  height: 20px;
+  background: var(--rer);
+  border-radius: 50% 50% 20% 20%;
+}
+
+.rearsD.rerdleft { left: 1px; top: -15px; transform: rotate(-20deg) }
+.rearsD.rerdright { right: 41px; top: -15px; transform: rotate(20deg) }
+
+.reye {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--rey);
+  z-index: 5;
+}
+
+.reye.close {
+  background: transparent;
+}
+
+.reye.close::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  
+  border-bottom: 2px solid var(--cap);
+  border-radius: 0 0 50px 50px;
+  
+  transform: translateY(-2px);
+}
+
+.reye.reyleft { left: 6px; top: 10px; }
+.reye.reyright { left: 22px; top: 10px; }
+
+.rmouth {
+  position: absolute;
+  width: 12px;
+  height: 10px;
+  border: 2px solid var(--rs);
+  border-color: transparent transparent var(--rs) transparent;
+  border-radius: 0 0 20px 20px; 
+  z-index: 4;
+}
+
+.rmouth.rmleft { left: 9px; top: 15px; }
+.rmouth.rmright { left: 15.8px; top: 15px; }
+
+.rnose {
+  position: absolute;
+  left: 14px;
+  top: 16px;
+  width: 9px;
+  height: 6px;
+  background: var(--rn);
+  clip-path: polygon(
+    50% 100%,  /* ponta */
+    10% 40%,   /* lado esq */
+    25% 0%,    /* topo arredondado */
+    75% 0%,    /* topo arredondado */
+    90% 40%    /* lado dir */
+  );
+  z-index: 5;
+}
+
+/* Cat */
+.cat {
+  position: relative;
+  z-index: 2;
+  left: 0px;
+  top: -110px;;
+}
+
+.caFace {
+  position: absolute;
+  width: 70px;
+  height: 60px;
+  background: var(--cab);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.caEye {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--cap);
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.caEye.close {
+  background: transparent;
+}
+
+.caEye.close::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  
+  border-bottom: 3px solid var(--cap);
+  border-radius: 0 0 50px 50px;
+  
+  transform: translateY(-2px);
+}
+
+.caEye.celeft { left: 15px; top: 20px; }
+.caEye.ceright { right: 20px; top: 20px; }
+
+.caEars {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: var(--cab);
+    border-radius: 20%;
+}
+
+.caEars.caeleft { left: 4px; top: 0px; transform: skewY(3deg) skewX(15deg) rotate(18deg) }
+.caEars.caeright { right: 10px; top: 0px; transform: skewY(-15deg) skewX(-5deg) rotate(-10deg) }
+
+.caEarsD {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 20%;
+  background: var(--cad);
+  z-index: 2px;
+}
+
+.caEarsD.caedleft { left: 7px; top: 3px; transform: skewY(3deg) skewX(15deg) rotate(18deg) }
+.caEarsD.caedright { right: 14px; top: 1px; transform: skewY(-15deg) skewX(-5deg) rotate(-10deg) }
+
+.caMouth {
+  position: absolute;
+  width: 15px;
+  height: 10px;
+  border: 2px solid var(--cad);
+  border-color: transparent transparent var(--cad) transparent;
+  left: 23px;
+  top: 23px;
+  border-radius: 0 0 20px 20px; 
+  z-index: 4;
+}
+
+
+.caMouthD {
+  position: absolute;
+  width: 15px;
+  height: 10px;
+  border: 2px solid var(--cad);
+  border-color: transparent transparent var(--cad) transparent;
+  border-radius: 0 0 20px 20px; 
+  left: 30px;
+  top: 23px;
+  z-index: 4;
+}
+
+.caTail {
+  position: absolute;
+  left: 69px;
+  top: -2px;
+  display: flex;
+  flex-direction: column; /* empilha as bolinhas verticalmente */
+  align-items: center;
+  gap: 0px; /* espaço menor entre as bolinhas */
+}
+
+.tail-segment {
+  width: 10px;
+  height: 10px;
+  background: var(--cad);
+  border-radius: 50%; /* deixa redonda */
+}
+
+/* curva da cauda: cada bolinha deslocada levemente */
+.tail-segment:nth-child(1) { transform: translate(-3.9px, 23px); }
+.tail-segment:nth-child(2) { transform: translate(0px, 10px); }
+.tail-segment:nth-child(3) { transform: translate(3px, -4px); }
+.tail-segment:nth-child(4) { transform: translate(3.8px, -17px); }
+.tail-segment:nth-child(5) { transform: translate(2px, -31px); }
+
+
 
 /* Daisy */
 .daisy {
@@ -107,6 +359,17 @@
   border-radius: 0px 0px 4px 4px;
 }
 
+.leaf {
+  position: absolute;
+  background: var(--dl);
+  width: 8px;
+  height: 10px;
+  border-radius: 20px 0px 20px 0px;
+}
+
+.leaf.left { left: -7px; top: 28px;  transform: rotate(75deg) }
+.leaf.right { left: 9px; top: 25px;  transform: rotate(20deg) }
+
 
 /* Capybara */ 
 .capy {
@@ -161,39 +424,36 @@
   height: 10px;
   left: 25%;
   transform: translate(-50%, -50%);
-  transition: transform 0.25s ease, top 0.25s ease;
-}
-
-.eye:nth-child(2),
-.eye:nth-child(4) { left: 75%; }
-
-/* Open Eyes */
-.eye-open {
-  background: var(--ce);
   border-radius: 50%;
-  display: block; /* sempre visível quando não fechado */
+  background: var(--ce);
+  z-index: 3;
 }
 
-/* Close Eyes */
-.eye-close {
-  border: 4px solid var(--ce);
-  border-color: transparent transparent var(--ce) transparent;
-  border-radius: 0 0 100px 100px;
-  width: 19px;
-  top: 55%;
-  transform: translate(-50%, -50%) rotate(180deg);
-  display: none; /* esconde por padrão */
+/* Segundo olho */
+.eye:nth-child(2),
+.eye:nth-child(4) { 
+  left: 75%; 
 }
 
-/* Close Eyes Animation */
-.cFace.close .eye-open {
-  display: none; /* some instantaneamente */
-  transform: translate(-50%, -50%) scaleY(0.1);
+/* Open eyes */
+.eye.open {
+  background: var(--ce);
 }
 
-.cFace.close .eye-close {
-  display: block; /* aparece instantaneamente */
-  transform: translate(-50%, -50%) rotate(180deg) scaleY(1);
+/* Close eyes */
+.eye.close {
+  background: transparent;
+}
+
+.eye.close::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border-bottom: 3px solid var(--ce);
+  border-radius: 0 0 50px 50px;
+
+  transform: translateY(-2px);
 }
 
 
