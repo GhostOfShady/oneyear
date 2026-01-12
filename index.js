@@ -11,6 +11,8 @@ const spawner = {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('song').play()
+    
     setInterval(() => {
         if (!document.hasFocus()) return
         const div = document.createElement('div')
