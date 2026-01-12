@@ -11,7 +11,8 @@ const spawner = {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('song').play()
+    const song = document.getElementById('song')
+    song.play()
     
     setInterval(() => {
         if (!document.hasFocus()) return
